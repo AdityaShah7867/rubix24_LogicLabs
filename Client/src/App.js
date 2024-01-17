@@ -9,9 +9,8 @@ import WorkshopForm from "./Pages/WORKSHOP/WorkshopForm";
 import LiveCourseForm from "./Pages/WORKSHOP/LiveCourseForm";
 import CommunityHome from "./Pages/Community/CommunityHome";
 import GeneralFeed from "./Pages/generalChat/generalFeed";
-
-
 import FindMentor from "./components/FindMentor";
+import BuyCoin from "./Pages/Coin/BuyCoin";
 function App() {
   return (
     <Router>
@@ -26,6 +25,7 @@ function App() {
         <Route path="/LiveCourseForm" element={<LiveCourseForm />} /> 
         <Route path="/CommunityHome" element={<CommunityHome />} />
         <Route path="/generalFeed" element={<GeneralFeed />} /> 
+        <Route path="/buycoins" element={<BuyCoin />} />
         
       </Routes>
     </Router>
