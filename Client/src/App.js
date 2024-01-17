@@ -1,25 +1,12 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-
+import Home from './components/Home'
 
 function App() {
   return (
     <Router>
-      <ToastContainer />
       <Routes>
-
-        
-        <Route path="/" element={<Land />} />
-       
-
-
-
-
-        {/* PRIVATE ROUTES BELOW THIS */}
-        {/* <Route path="/private/*" element={<Private />}>
-          
-        </Route> */}
-
+        <Route path="/" element={<Home />} />
       </Routes>
     </Router>
   );
