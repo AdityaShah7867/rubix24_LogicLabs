@@ -59,7 +59,7 @@ const MentorSchema = new mongoose.Schema({
         ref: 'Event'
     }],
 
-    student_limit:{
+    student_limit: {
         type: Number,
     },
 
@@ -84,7 +84,7 @@ const MentorSchema = new mongoose.Schema({
                 return this.pricing.model === 'package';
             },
         },
-        
+
         subscriptionDetails: {
             type: String,
             required: function () {
@@ -100,6 +100,28 @@ const MentorSchema = new mongoose.Schema({
         type: Boolean,
         default: false
     },
+
+    vCoins: {
+
+        type: Number,
+        default: 0
+    },
+
+
+    phone: {
+
+        type: String,
+        required: [true, "Phone is required"],
+        minlength: [10, "Phone must be at least 10 characters long"]
+    },
+
+    registration_fee_paid: {
+        type: Boolean,
+        default: false
+    },
+
+
+
 
 
 }, { timestamps: true });

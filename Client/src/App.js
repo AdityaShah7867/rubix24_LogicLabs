@@ -9,10 +9,12 @@ import StudentRegister from "./Pages/Auth/StudentRegister";
 import WorkshopForm from "./Pages/WORKSHOP/WorkshopForm";
 import LiveCourseForm from "./Pages/WORKSHOP/LiveCourseForm";
 import FindMentor from "./components/FindMentor";
+import toast, { Toaster } from 'react-hot-toast';
 function App() {
   return (
     <Router>
       <Navbar/>
+      <Toaster />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/dashboard" element={<Dashboard />} />      

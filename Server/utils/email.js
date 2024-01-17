@@ -1,18 +1,18 @@
-import nodemailer from 'nodemailer';
-import jwt from 'jsonwebtoken';
-import dotenv from 'dotenv';
-import {gmailContent} from './emailTemplate.js';
-dotenv.config();
+const nodemailer = require('nodemailer');
+const jwt = require('jsonwebtoken');
+const {gmailContent} = require('./emailTemplate.js');
+require('dotenv').config();
+
 const secret_key = process.env.JWT_SECRET;
 
 
 
-export const generateverificationToken = (email) => {
+const generateverificationToken = (email) => {
     return jwt.sign({ email: email }, secret_key, { expiresIn: '1d' })
 }
 
 
-export const sendVerificationEmail = async (recipientEmail, verificationToken, username) => {
+const sendVerificationEmail = async (recipientEmail, verificationToken, username) => {
     try {
         const transporter = nodemailer.createTransport({
             service: 'gmail',
@@ -38,3 +38,6 @@ export const sendVerificationEmail = async (recipientEmail, verificationToken, u
         console.error('Error sending verification email:', error);
     }
 }
+
+
+module.exports = { generateverificationToken, sendVerificationEmail };

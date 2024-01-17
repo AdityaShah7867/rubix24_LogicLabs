@@ -71,7 +71,7 @@ const gmailContent = (verificationToken, username, user) => {
 }
 
 
-export const successFullVerification = (username) => {
+const successFullVerification = (username) => {
     return `
     <!DOCTYPE html>
     <html lang="en">

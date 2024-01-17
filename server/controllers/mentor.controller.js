@@ -39,7 +39,7 @@ const deleteObjectFromBucket = async (objectKey) => {
 const registerMentor = async (req, res) => {
     try {
 
-        const { name, email, password } = req.body;
+        const { name, email, password, age, phone } = req.body;
 
         const existing_email = await Mentor.findOne({ email });
 
@@ -50,7 +50,7 @@ const registerMentor = async (req, res) => {
         const salt = await bcrypt.genSalt();
 
         const passwordHash = await bcrypt.hash(password, salt);
-        const mentor = await Mentor.create({ name, email, password: passwordHash });
+        const mentor = await Mentor.create({ name, email, password: passwordHash, age, phone });
 
         res.status(201).json({ mentor, message: `Congratulations ${name}! You have successfully registered as a Mentor` });
     } catch (error) {
