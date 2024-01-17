@@ -47,10 +47,10 @@ const Register = () => {
             }
         } catch (error) {
             console.error('Error during registration:', error);
-            s
+       
         }
     };
-    
+
     useEffect(() => {
         window.scrollTo(0, 0)
     }, []);
