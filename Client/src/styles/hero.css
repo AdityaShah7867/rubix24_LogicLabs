@@ -36,7 +36,7 @@
   font-size: 17px;
   font-weight: 600;
   line-height: 1.5;
-  margin-bottom: 40px;
+  margin-bottom: 25px;
   max-width: 450px;
   color: rgb(84, 84, 84);
 }
@@ -46,6 +46,7 @@
   align-items: center;
   margin-top: 20px;
 }
+
 .banner_wrapper .header-img-section img {
   width: 100%;
   animation: float 5s ease-in-out infinite;

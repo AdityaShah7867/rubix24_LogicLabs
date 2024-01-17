@@ -1,11 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap");
+* {
+  font-family: "Lato", sans-serif;
+  scroll-behavior: smooth;
+}
+
+:root {
+  --primaryColor: #24a8df;
+  --secondaryColor: whitesmoke;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
 .learn-more-btn {
-  background-color: blueviolet !important;
+  background-color: var(--primaryColor) !important;
   font-size: 18px !important;
   font-weight: 700 !important;
-  color: whitesmoke !important;
+  color: var(--secondaryColor) !important;
   padding: 12px 29px !important;
   border-radius: 10px !important;
-  border: 2px solid blueviolet !important;
+  border: 2px solid var(--primaryColor) !important;
   box-shadow: 0 10px 20px rgb(0 0 0 / 10%) !important;
   display: inline-block !important;
   text-decoration: none !important;
@@ -16,7 +31,7 @@
   background-color: #d11a2a !important;
   font-size: 18px !important;
   font-weight: 700 !important;
-  color: whitesmoke !important;
+  color: var(--secondaryColor) !important;
   padding: 12px 29px !important;
   border-radius: 10px !important;
   border: 2px solid #d11a2a !important;
@@ -27,7 +42,38 @@
 }
 
 .btn-extra-header {
-  color: blueviolet !important;
+  color: var(--primaryColor) !important;
   background-color: transparent !important;
-  border: 2px solid blueviolet !important;
+  border: 2px solid var(--primaryColor) !important;
+}
+
+.marginStyle {
+  margin-top: 120px;
+  margin-bottom: 150px;
+}
+
+.navbar-toggler,
+.navbar-toggler:focus,
+.navbar-toggler:active,
+.navbar-toggler-icon:focus {
+  outline: none;
+  border: none;
+  box-shadow: none;
+}
+
+.animateImg img {
+  width: 100%;
+  animation: float 5s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translatey(0px);
+  }
+  50% {
+    transform: translatey(20px);
+  }
+  100% {
+    transform: translatey(0px);
+  }
 }

@@ -2,11 +2,12 @@ import React from 'react'
 import '../../styles/hero.css'
 import hero from '../../assets/hero.png'
 import { Link } from 'react-router-dom'
+import { FaCheck } from "react-icons/fa";
 
 const Hero = () => {
     return (
         <>
-            <div>
+            <div className='mt-5'>
                 <section className='banner_wrapper'>
                     <div className='container'>
                         <div className='row align-items-center'>
@@ -14,9 +15,10 @@ const Hero = () => {
                                 <img src={hero} alt='Hello Carwale' className='img-fluid' />
                             </div>
                             <div className="col-md-5 my-5 my-md-0 text-center text-md-start">
-                                <p className="banner-subtitle">Your Road to the Perfect Ride</p>
-                                <h1 className="banner-title">Driving Dreams into <span>Reality</span> with us</h1>
-                                <p className="banner-title-text " style={{ textAlign: 'justify' }}>Experience car buying like never before. CarWale offers an extensive range of options, unbeatable deals, expert guidance, and a hassle-free journey to your dream car. Discover, compare, and drive with confidence.</p>
+                                <p className="banner-subtitle">Learn a new skill, launch a project, land your dream career</p>
+                                <h1 className="banner-title">Driving Dreams into <span>Reality</span> </h1>
+                                <h5 className="banner-title-text " style={{ textAlign: '' }}>Learn a new skill, launch a project, land your dream career</h5>
+                                <h6 className='mt-0'><FaCheck size={20} color='#fffb00' className='mx-2' /> 1-on-1 Backend Mentorship</h6>
                                 <div className="learn-more-btn-section">
                                     <Link to='/cars' className="nav-link learn-more-btn btn-header" href="#car">Shop Now</Link>
                                 </div>
