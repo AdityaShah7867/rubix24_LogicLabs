@@ -9,12 +9,14 @@ import StudentRegister from "./Pages/Auth/StudentRegister";
 import WorkshopForm from "./Pages/WORKSHOP/WorkshopForm";
 import LiveCourseForm from "./Pages/WORKSHOP/LiveCourseForm";
 import FindMentor from "./components/FindMentor";
+import AllMentors from "./components/AllMentors";
 function App() {
   return (
     <Router>
       <Navbar/>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/allmentors" element={<AllMentors />} />
         <Route path="/dashboard" element={<Dashboard />} />      
         <Route path="/login" element={<Login />} />  
         <Route path="/findyourmentor" element={<FindMentor />} />  

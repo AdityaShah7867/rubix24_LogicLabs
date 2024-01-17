@@ -38,7 +38,7 @@ const Navbar = () => {
                                     <a className="nav-link " aria-current="page">Home</a>
                                 </li>
                             </Link>
-                            <Link to='/about' style={{ textDecoration: 'none' }}>
+                            <Link to='/allmentors' style={{ textDecoration: 'none' }}>
                                 <li className="nav-item">
                                     <a className="nav-link " aria-current="page">Mentors</a>
                                 </li>

@@ -44,7 +44,6 @@
   transform: translateY(-50%) scale(0.98);
 }
 
-/* Responsive */
 @media screen and (max-width: 500px) {
   .input-box {
     height: 66px;

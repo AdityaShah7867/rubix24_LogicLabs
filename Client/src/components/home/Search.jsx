@@ -4,10 +4,10 @@ import "../../styles/search.css"
 
 const Search = () => {
     return (
-        <center>
+        <center className='container'>
             <div class="input-box container">
                 <input name='search' type="search" placeholder="Search here..." aria-label="Search" />
-                <Link className='button' type="button" style={{ textDecoration: "none" }}>Search</Link>
+                <Link className='button' type="button" style={{ textDecoration: "none" }}>Search Mentors</Link>
             </div>
         </center>
     )

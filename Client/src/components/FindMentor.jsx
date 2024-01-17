@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react'
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import React, { useEffect } from 'react'
 import login from '../assets/login.png'
 import '../styles/auth.css'
 
@@ -40,12 +39,7 @@ const FindMentor = () => {
                                 </div>
                                 <div class="d-flex flex-row align-items-center mt-4 ">
                                     <div class="form-outline flex-fill mb-0">
-                                        <button class="btn btn-lg  text-white" type="button" style={{ backgroundColor: '#24a8df', width: '100%' }} >Login</button>
-                                    </div>
-                                </div>
-                                <div class="d-flex flex-row align-items-center my-3 ">
-                                    <div class="form-outline flex-fill mb-0 " >
-                                        <Link to='/register' class="btn btn-outline-dark btn-lg btn-block" style={{ width: '100%' }} type="button">Register</Link>
+                                        <button class="btn btn-lg  text-white" type="button" style={{ backgroundColor: '#24a8df', width: '100%' }} >Find Now</button>
                                     </div>
                                 </div>
                             </div>
