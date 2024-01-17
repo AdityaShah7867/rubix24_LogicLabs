@@ -39,15 +39,14 @@ const Register = () => {
 
             if (response.ok) {
                 toast.success(data.message);
-               
+
                 navigate('/login');
             } else {
                 toast.error(data.message);
-            
+
             }
         } catch (error) {
             console.error('Error during registration:', error);
-       
         }
     };
 
