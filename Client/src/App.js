@@ -23,20 +23,19 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
            
-        <Route path="/login" element={<Login />} />  
-        <Route path="/findyourmentor" element={<FindMentor />} />  
-        <Route path="/register" element={<StudentRegister />} /> 
+        <Route path="/student/login" element={<Login />} />  
+        <Route path="/student/findyourmentor" element={<FindMentor />} />  
+        <Route path="/student/register" element={<StudentRegister />} /> 
         
         <Route path="/CommunityHome" element={<CommunityHome />} />
         <Route path="/generalFeed" element={<GeneralFeed />} /> 
         <Route path="/buycoins" element={<BuyCoin />} />
 
 
-      {/* BELOW THIS ROUTE OF MENTOR  */}
-        <Route path="/WorkshopForm" element={<WorkshopForm />} />   
-        <Route path="/LiveCourseForm" element={<LiveCourseForm />} /> 
-        <Route path="/MLogin" element={<MLogin />} />
-        <Route path="/MentorRegister" element={<MentorRegister />} />
+        <Route path="/mentor/workshopform" element={<WorkshopForm />} />   
+        <Route path="/mentor/livecourseform" element={<LiveCourseForm />} /> 
+        <Route path="/mentor/login" element={<MLogin />} />
+        <Route path="/mentor/register" element={<MentorRegister />} />
         
       </Routes>
     </Router>

@@ -55,10 +55,10 @@ const Navbar = () => {
                             </Link>
                         </ul>
                         <ul className='mt-2 text-center'>
-                            <Link to='/login' style={{ textDecoration: 'none' }} className="nav-item text-center">
+                            <Link to='/student/login' style={{ textDecoration: 'none' }} className="nav-item text-center">
                                 <a className="nav-link learn-more-btn btn-extra-header" aria-current="page">Login</a>
                             </Link>
-                            <Link to='/register' style={{ textDecoration: 'none' }} className="nav-item text-center">
+                            <Link to='/student/register' style={{ textDecoration: 'none' }} className="nav-item text-center">
                                 <a className="nav-link learn-more-btn" aria-current="page">Register</a>
                             </Link>
                         </ul>

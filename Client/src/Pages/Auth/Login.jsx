@@ -41,7 +41,7 @@ const Login = () => {
             toast.success(res.data.message);
             setEmail("");
             setPassword("");
-            navigate('/dashboard');
+            navigate('/student/findyourmentor');
         } else {
             toast.error(res.data.message);
         }

@@ -28,7 +28,7 @@ const MLogin = () => {
             password: password
         };
 
-        const res = await loginFn(requestBody, "student");
+        const res = await loginFn(requestBody, "mentor");
 
         if (res.status === 200) {
             setAuth({
@@ -41,7 +41,7 @@ const MLogin = () => {
             toast.success(res.data.message);
             setEmail("");
             setPassword("");
-            navigate('/dashboard');
+            navigate('/mentor/workshopform');
         } else {
             toast.error(res.data.message);
         }
@@ -64,7 +64,7 @@ const MLogin = () => {
                         <form class="col-md-6 right-box" type="submit" >
                             <div class="row align-items-center">
                                 <div class="header-text mb-4">
-                                    <h2>Welcome</h2>
+                                    <h2>Welcome Mentor</h2>
                                     <p>We are happy to have you back !</p>
                                 </div>
                                 <div class="input-group d-flex  align-items-center mb-3">

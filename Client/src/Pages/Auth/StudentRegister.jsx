@@ -43,7 +43,7 @@ const StudentRegister = () => {
 
         if (res.status === 201) {
             toast.success(res.data.message);
-            navigate('/login');
+            navigate('/mentor/login');
         } else {
             toast.error(res.data.message);
         }

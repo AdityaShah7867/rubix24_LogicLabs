@@ -49,7 +49,7 @@ const MentorRegister = () => {
             setEmail("");
             setPassword("");
             setPhone("");
-            navigate('/login');
+            navigate('/student/login');
 
         } else {
             toast.error(res.data.message);
