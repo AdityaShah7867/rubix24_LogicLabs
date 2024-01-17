@@ -12,6 +12,9 @@ import GeneralFeed from "./Pages/generalChat/generalFeed";
 import FindMentor from "./components/FindMentor";
 import BuyCoin from "./Pages/Coin/BuyCoin";
 import toast, { Toaster } from 'react-hot-toast';
+import MLogin from "./Pages/Auth/MLogin";
+import MentorRegister from "./Pages/Auth/MentorRegister";
+
 function App() {
   return (
     <Router>
@@ -32,6 +35,8 @@ function App() {
       {/* BELOW THIS ROUTE OF MENTOR  */}
         <Route path="/WorkshopForm" element={<WorkshopForm />} />   
         <Route path="/LiveCourseForm" element={<LiveCourseForm />} /> 
+        <Route path="/MLogin" element={<MLogin />} />
+        <Route path="/MentorRegister" element={<MentorRegister />} />
         
       </Routes>
     </Router>

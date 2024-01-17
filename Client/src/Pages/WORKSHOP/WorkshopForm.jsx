@@ -4,6 +4,9 @@ const WorkshopForm = () => {
   return (
     <div className="container" style={{marginTop:"10%"}}>
       <div className="row justify-content-center">
+        <center>
+        <h1 style={{fontSize:"22px",marginBottom:"20px"}}>WORKSHOP FORM</h1>
+        </center>
         <div className="col-md-6">
           <form>
             <div className="mb-3">

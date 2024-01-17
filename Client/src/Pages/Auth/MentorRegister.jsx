@@ -5,7 +5,7 @@ import '../../styles/auth.css'
 import register from '../../assets/register.png'
 import { registerFn } from '../../helpers/AuthFn';
 
-const ManagerRegister = () => {
+const MentorRegister = () => {
     
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
@@ -75,7 +75,7 @@ const ManagerRegister = () => {
                             <div class="row align-items-center">
                                 <div class="header-text mb-4">
                                     <h2>Welcome</h2>
-                                    <p>Your Dream Car is Waiting !</p>
+                                    <p>Your Mentoring carrier begins here !</p>
                                 </div>
                                 <div class="input-group d-flex  align-items-center mb-3">
                                     <div class="form-outline flex-fill mb-0">
@@ -121,4 +121,4 @@ const ManagerRegister = () => {
     )
 }
 
-export default ManagerRegister
+export default MentorRegister

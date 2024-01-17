@@ -25,6 +25,7 @@ export const loginFn  = async (user, type) => {
 }
 
 
+
 export const registerFn = async (user,type) => {
     try{
             
