@@ -2,8 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { BiMenuAltRight } from 'react-icons/bi'
 import '../../styles/navbar.css'
 import { Link } from "react-router-dom"
-import { AiOutlineShoppingCart } from 'react-icons/ai'
-
+import logo from '../../assets/logo.png'
 const Navbar = () => {
 
     const [click, setClick] = useState(false)
@@ -26,8 +25,7 @@ const Navbar = () => {
             <nav className="navbar navbar-expand-lg fixed-top">
                 <div className="container-fluid mx-3">
                     <Link to='/'>
-                        {/* <img src={logo} style={{ width: '130px' }} /> */}
-                        <h3>Meet DOdiya</h3>
+                        {/* <img src={logo} style={{ width: "100px" }} className='' /> */}
                     </Link>
                     <button className="navbar-toggler pe-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <BiMenuAltRight size={35} />
