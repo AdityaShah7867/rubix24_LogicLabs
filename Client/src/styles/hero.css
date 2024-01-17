@@ -46,6 +46,7 @@
   align-items: center;
   margin-top: 20px;
 }
+
 .banner_wrapper .header-img-section img {
   width: 100%;
   animation: float 5s ease-in-out infinite;

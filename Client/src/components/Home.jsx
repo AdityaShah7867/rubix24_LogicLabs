@@ -3,9 +3,9 @@ import Hero from './home/Hero'
 
 const Home = () => {
     return (
-        <div>
+        <>
             <Hero />
-        </div>
+        </>
     )
 }
 

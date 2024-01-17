@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
-import '../../Assests/Css/hero.css'
+import '../../styles/auth.css'
+import register from '../../assets/register.png'
 
 const StudentRegister = () => {
     const [name, setName] = useState("");
@@ -18,12 +19,12 @@ const StudentRegister = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-    
+
         if (!name.trim() || !email.trim() || !password.trim() || !phone.trim() || !age.trim()) {
             toast.error('All fields are required');
             return;
         }
-    
+
         const requestBody = {
             name: name,
             email: email,
@@ -31,7 +32,7 @@ const StudentRegister = () => {
             phone: phone,
             age: age
         };
-    
+
         try {
             const response = await fetch(`${process.env.REACT_APP_API_URL}/student/register`, {
                 method: 'POST',
@@ -40,9 +41,9 @@ const StudentRegister = () => {
                 },
                 body: JSON.stringify(requestBody),
             });
-    
+
             const data = await response.json();
-    
+
             if (response.ok) {
                 toast.success(data.message);
                 navigate('/login');
@@ -53,7 +54,7 @@ const StudentRegister = () => {
             console.error('Error during registration:', error);
         }
     };
-    
+
 
     useEffect(() => {
         window.scrollTo(0, 0)
@@ -66,7 +67,7 @@ const StudentRegister = () => {
                     <div class="row border rounded-5 p-3 bg-white shadow box-area reverseCol">
                         <div class="col-md-6 rounded-4 d-flex justify-content-center align-items-center flex-column left-box">
                             <div class="featured-image mb-3 animateImg">
-                                <img src="" class="img-fluid" width={500} />
+                                <img src={register} class="img-fluid" width={400} />
                             </div>
                         </div>
                         <div class="col-md-6 right-box">
@@ -102,7 +103,7 @@ const StudentRegister = () => {
                                 </div>
                                 <div class="d-flex flex-row align-items-center mt-4 ">
                                     <div class="form-outline flex-fill mb-0">
-                                        <button class="btn btn-lg  text-white" type="button" onClick={handleSubmit} style={{ backgroundColor: 'blueviolet', width: '100%' }} >Register</button>
+                                        <button class="btn btn-lg  text-white" type="button" onClick={handleSubmit} style={{ backgroundColor: '#24a8df', width: '100%' }} >Register</button>
                                     </div>
                                 </div>
                                 <div class="d-flex flex-row align-items-center my-3 ">

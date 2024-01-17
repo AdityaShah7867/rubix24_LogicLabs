@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from 'react'
-// import { useAuth } from '../../Context/AuthContext';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
-// import login from '../images/login.png'
-import '../../Assests/Css/hero.css'
-import '../../Assests/Css/auth.css'
+import login from '../../assets/login.png'
+import '../../styles/auth.css'
 
 const Login = () => {
 
@@ -17,17 +15,17 @@ const Login = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-    
+
         if (!email.trim() || !password.trim()) {
             toast.error('Email and password are required');
             return;
         }
-    
+
         const requestBody = {
             email: email,
             password: password
         };
-    
+
         try {
             const response = await fetch(`${process.env.REACT_APP_API_URL}/student/login`, {
                 method: 'POST',
@@ -36,9 +34,9 @@ const Login = () => {
                 },
                 body: JSON.stringify(requestBody),
             });
-    
+
             const data = await response.json();
-    
+
             if (response.ok) {
                 toast.success(data.message);
             } else {
@@ -48,7 +46,7 @@ const Login = () => {
             console.error('Error during login:', error);
         }
     };
-    
+
     useEffect(() => {
         window.scrollTo(0, 0)
     }, []);
@@ -60,10 +58,10 @@ const Login = () => {
                     <div class="row border rounded-5 p-3 bg-white shadow box-area reverseCol">
                         <div class="col-md-6 rounded-4 d-flex justify-content-center align-items-center flex-column left-box">
                             <div class="featured-image mb-3 animateImg">
-                                <img src="" class="img-fluid" width={500} />
+                                <img src={login} class="img-fluid" width={400} />
                             </div>
                         </div>
-                        <form class="col-md-6 right-box">
+                        <form class="col-md-6 right-box" type="submit" >
                             <div class="row align-items-center">
                                 <div class="header-text mb-4">
                                     <h2>Welcome</h2>
@@ -81,12 +79,12 @@ const Login = () => {
                                 </div>
                                 <div class="d-flex flex-row align-items-center mt-4 ">
                                     <div class="form-outline flex-fill mb-0">
-                                        <button class="btn btn-lg  text-white" type="button" onClick={handleSubmit} style={{ backgroundColor: 'blueviolet', width: '100%' }} >Login</button>
+                                        <button class="btn btn-lg  text-white" type="button" onClick={handleSubmit} style={{ backgroundColor: '#24a8df', width: '100%' }} >Login</button>
                                     </div>
                                 </div>
                                 <div class="d-flex flex-row align-items-center my-3 ">
                                     <div class="form-outline flex-fill mb-0 " >
-                                        <Link to='/StudentRegister' class="btn btn-outline-dark btn-lg btn-block" style={{ width: '100%' }} type="button">Register</Link>
+                                        <Link to='/register' class="btn btn-outline-dark btn-lg btn-block" style={{ width: '100%' }} type="button">Register</Link>
                                     </div>
                                 </div>
                             </div>
