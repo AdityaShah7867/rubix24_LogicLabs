@@ -5,6 +5,6 @@ const { validateToken } = require('../middlewares/validateJWTToken.middleware')
 
 router.post('/register', registerMentor);
 router.post('/login', loginMentor);
-router.patch('/:mentorId', validateToken, editMentor);
+router.patch('/', validateToken, editMentor);
 
 module.exports = router;

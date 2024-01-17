@@ -59,9 +59,69 @@ const MentorSchema = new mongoose.Schema({
         ref: 'Event'
     }],
 
-    student_limit:{
+    student_limit: {
         type: Number,
-    }
+    },
+
+    pricing: {
+
+        model: {
+            type: String,
+            enum: ['hourly', 'package', 'subscription'],
+            default: 'hourly',
+        },
+
+        rate: {
+            type: Number,
+            required: function () {
+                return this.pricing.model === 'hourly';
+            },
+        },
+
+        packageDetails: {
+            type: String,
+            required: function () {
+                return this.pricing.model === 'package';
+            },
+        },
+
+        subscriptionDetails: {
+            type: String,
+            required: function () {
+                return this.pricing.model === 'subscription';
+            },
+        },
+    },
+
+    verficationToken: String,
+
+    isVerified: {
+
+        type: Boolean,
+        default: false
+    },
+
+    vCoins: {
+
+        type: Number,
+        default: 0
+    },
+
+
+    phone: {
+
+        type: String,
+        required: [true, "Phone is required"],
+        minlength: [10, "Phone must be at least 10 characters long"]
+    },
+
+    registration_fee_paid: {
+        type: Boolean,
+        default: false
+    },
+
+
+
 
 
 }, { timestamps: true });
