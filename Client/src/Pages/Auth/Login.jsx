@@ -17,36 +17,38 @@ const Login = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
+    
         if (!email.trim() || !password.trim()) {
             toast.error('Email and password are required');
             return;
         }
-
-        const formData = new FormData();
-        formData.append('email', email);
-        formData.append('password', password);
-
+    
+        const requestBody = {
+            email: email,
+            password: password
+        };
+    
         try {
-            const response = await fetch(`${process.env.REACT_APP_API_URL}/api/user/login`, {
+            const response = await fetch(`${process.env.REACT_APP_API_URL}/student/login`, {
                 method: 'POST',
-                body: formData,
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(requestBody),
             });
-
+    
             const data = await response.json();
-
+    
             if (response.ok) {
                 toast.success(data.message);
-                
             } else {
                 toast.error(data.message);
-              
             }
         } catch (error) {
             console.error('Error during login:', error);
         }
     };
-
+    
     useEffect(() => {
         window.scrollTo(0, 0)
     }, []);
@@ -84,7 +86,7 @@ const Login = () => {
                                 </div>
                                 <div class="d-flex flex-row align-items-center my-3 ">
                                     <div class="form-outline flex-fill mb-0 " >
-                                        <Link to='/register' class="btn btn-outline-dark btn-lg btn-block" style={{ width: '100%' }} type="button">Register</Link>
+                                        <Link to='/StudentRegister' class="btn btn-outline-dark btn-lg btn-block" style={{ width: '100%' }} type="button">Register</Link>
                                     </div>
                                 </div>
                             </div>
