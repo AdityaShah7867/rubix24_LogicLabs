@@ -8,6 +8,7 @@ import Login from "./Pages/Auth/Login";
 import StudentRegister from "./Pages/Auth/StudentRegister";
 import WorkshopForm from "./Pages/WORKSHOP/WorkshopForm";
 import LiveCourseForm from "./Pages/WORKSHOP/LiveCourseForm";
+import FindMentor from "./components/FindMentor";
 function App() {
   return (
     <Router>
@@ -16,6 +17,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/dashboard" element={<Dashboard />} />      
         <Route path="/login" element={<Login />} />  
+        <Route path="/findyourmentor" element={<FindMentor />} />  
         <Route path="/register" element={<StudentRegister />} /> 
         <Route path="/WorkshopForm" element={<WorkshopForm />} />   
         <Route path="/LiveCourseForm" element={<LiveCourseForm />} /> 
