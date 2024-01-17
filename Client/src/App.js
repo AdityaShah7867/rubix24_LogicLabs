@@ -12,10 +12,12 @@ import GeneralFeed from "./Pages/generalChat/generalFeed";
 
 
 import FindMentor from "./components/FindMentor";
+import toast, { Toaster } from 'react-hot-toast';
 function App() {
   return (
     <Router>
       <Navbar/>
+      <Toaster />
       <Routes>
         <Route path="/" element={<Home />} />
            

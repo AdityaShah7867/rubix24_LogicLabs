@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import '../../styles/auth.css'
 import register from '../../assets/register.png'
+import { registerFn } from '../../helpers/AuthFn';
 
 const StudentRegister = () => {
     const [name, setName] = useState("");
@@ -25,6 +26,11 @@ const StudentRegister = () => {
             return;
         }
 
+        if (!validateEmail(email)) {
+            toast.error('Please enter a valid email address');
+            return;
+        }
+
         const requestBody = {
             name: name,
             email: email,
@@ -33,25 +39,13 @@ const StudentRegister = () => {
             age: age
         };
 
-        try {
-            const response = await fetch(`${process.env.REACT_APP_API_URL}/student/register`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(requestBody),
-            });
+        const res = await registerFn(requestBody,"student");
 
-            const data = await response.json();
-
-            if (response.ok) {
-                toast.success(data.message);
-                navigate('/login');
-            } else {
-                toast.error(data.message);
-            }
-        } catch (error) {
-            console.error('Error during registration:', error);
+        if (res.status === 201) {
+            toast.success(res.data.message);
+            navigate('/login');
+        } else {
+            toast.error(res.data.message);
         }
     };
 

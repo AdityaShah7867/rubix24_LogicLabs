@@ -4,6 +4,6 @@ const { registerStudent, loginStudent, editStudent } = require('../controllers/s
 const {validateToken} = require('../middlewares/validateJWTToken.middleware')
 router.post('/register', registerStudent);
 router.post('/login', loginStudent);
-router.patch('/:studentId', validateToken, editStudent);
+router.patch('/', validateToken, editStudent);
 
 module.exports = router;

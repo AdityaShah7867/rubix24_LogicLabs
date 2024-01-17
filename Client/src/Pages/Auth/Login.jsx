@@ -2,13 +2,15 @@ import React, { useEffect, useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import login from '../../assets/login.png'
+import { useAuth } from '../../Context/AuthContext';
 import '../../styles/auth.css'
+import { loginFn } from '../../helpers/AuthFn';
 
 const Login = () => {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    // const [auth, setAuth] = useAuth()
+    const {auth, setAuth} = useAuth();
     const navigate = useNavigate()
     const location = useLocation();
 
@@ -26,24 +28,22 @@ const Login = () => {
             password: password
         };
 
-        try {
-            const response = await fetch(`${process.env.REACT_APP_API_URL}/student/login`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(requestBody),
+        const res = await loginFn(requestBody, "student");
+
+        if (res.status === 200) {
+            setAuth({
+                ...auth,
+                token: res.data.token,
+                user: res.data.user
             });
 
-            const data = await response.json();
-
-            if (response.ok) {
-                toast.success(data.message);
-            } else {
-                toast.error(data.message);
-            }
-        } catch (error) {
-            console.error('Error during login:', error);
+            localStorage.setItem('auth', res.data);
+            toast.success(res.data.message);
+            setEmail("");
+            setPassword("");
+            navigate('/dashboard');
+        } else {
+            toast.error(res.data.message);
         }
     };
 

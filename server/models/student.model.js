@@ -55,6 +55,33 @@ const StudentSchema = new mongoose.Schema({
 
     }],
 
+    is_a_mentee: {
+
+        type: Boolean,
+        default: true
+    },
+
+    verficationToken: String,
+
+    isVerified: {
+
+        type: Boolean,
+        default: false
+    },
+
+    vCoins: {
+
+        type: Number,
+        default: 0
+    },
+
+    phone: {
+
+        type: String,
+        required: [true, "Phone is required"],
+        minlength: [10, "Phone must be at least 10 characters long"]
+    },
+
 }, { timestamps: true });
 
 module.exports = mongoose.model('Student', StudentSchema);
