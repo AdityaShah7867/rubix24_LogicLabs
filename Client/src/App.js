@@ -11,6 +11,7 @@ import CommunityHome from "./Pages/Community/CommunityHome";
 import GeneralFeed from "./Pages/generalChat/generalFeed";
 
 
+import FindMentor from "./components/FindMentor";
 function App() {
   return (
     <Router>
@@ -19,7 +20,8 @@ function App() {
         <Route path="/" element={<Home />} />
            
         <Route path="/login" element={<Login />} />  
-        <Route path="/StudentRegister" element={<StudentRegister />} /> 
+        <Route path="/findyourmentor" element={<FindMentor />} />  
+        <Route path="/register" element={<StudentRegister />} /> 
         <Route path="/WorkshopForm" element={<WorkshopForm />} />   
         <Route path="/LiveCourseForm" element={<LiveCourseForm />} /> 
         <Route path="/CommunityHome" element={<CommunityHome />} />

@@ -4,7 +4,7 @@ import toast from 'react-hot-toast';
 import '../../styles/auth.css'
 import register from '../../assets/register.png'
 
-const StudentRegister = () => {
+const ManagerRegister = () => {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -120,4 +120,4 @@ const StudentRegister = () => {
     )
 }
 
-export default StudentRegister
+export default ManagerRegister
