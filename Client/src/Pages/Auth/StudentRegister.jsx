@@ -3,12 +3,12 @@ import { Link, useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import '../../Assests/Css/hero.css'
 
-const Register = () => {
+const StudentRegister = () => {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [phone, setPhone] = useState("");
-    const [address, setAddress] = useState("");
+    const [age, setAge] = useState("");
     const navigate = useNavigate()
 
     const validateEmail = (email) => {
@@ -18,38 +18,42 @@ const Register = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        if (!name.trim() || !email.trim() || !password.trim() || !phone.trim() || !address.trim()) {
+    
+        if (!name.trim() || !email.trim() || !password.trim() || !phone.trim() || !age.trim()) {
             toast.error('All fields are required');
             return;
         }
-        const formData = new FormData();
-        formData.append('name', name);
-        formData.append('email', email);
-        formData.append('password', password);
-        formData.append('phone', phone);
-        formData.append('address', address);
-
+    
+        const requestBody = {
+            name: name,
+            email: email,
+            password: password,
+            phone: phone,
+            age: age
+        };
+    
         try {
-            const response = await fetch(`${process.env.REACT_APP_API_URL}/api/user/register`, {
+            const response = await fetch(`${process.env.REACT_APP_API_URL}/student/register`, {
                 method: 'POST',
-                body: formData,
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(requestBody),
             });
-
+    
             const data = await response.json();
-
+    
             if (response.ok) {
                 toast.success(data.message);
-
                 navigate('/login');
             } else {
                 toast.error(data.message);
-
             }
         } catch (error) {
             console.error('Error during registration:', error);
-
         }
     };
+    
 
     useEffect(() => {
         window.scrollTo(0, 0)
@@ -93,7 +97,7 @@ const Register = () => {
                                 </div>
                                 <div class="input-group d-flex flex-row align-items-center mb-3">
                                     <div class="form-outline flex-fill mb-0">
-                                        <input value={address} onChange={(e) => setAddress(e.target.value)} type="text" required placeholder='Your address' class="form-control" />
+                                        <input value={age} onChange={(e) => setAge(e.target.value)} type="text" required placeholder='Your age' class="form-control" />
                                     </div>
                                 </div>
                                 <div class="d-flex flex-row align-items-center mt-4 ">
@@ -115,4 +119,4 @@ const Register = () => {
     )
 }
 
-export default Register
+export default StudentRegister
