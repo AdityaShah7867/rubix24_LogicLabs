@@ -61,7 +61,45 @@ const MentorSchema = new mongoose.Schema({
 
     student_limit:{
         type: Number,
-    }
+    },
+
+    pricing: {
+
+        model: {
+            type: String,
+            enum: ['hourly', 'package', 'subscription'],
+            default: 'hourly',
+        },
+
+        rate: {
+            type: Number,
+            required: function () {
+                return this.pricing.model === 'hourly';
+            },
+        },
+
+        packageDetails: {
+            type: String,
+            required: function () {
+                return this.pricing.model === 'package';
+            },
+        },
+        
+        subscriptionDetails: {
+            type: String,
+            required: function () {
+                return this.pricing.model === 'subscription';
+            },
+        },
+    },
+
+    verficationToken: String,
+
+    isVerified: {
+
+        type: Boolean,
+        default: false
+    },
 
 
 }, { timestamps: true });

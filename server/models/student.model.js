@@ -55,6 +55,20 @@ const StudentSchema = new mongoose.Schema({
 
     }],
 
+    is_a_mentee: {
+
+        type: Boolean,
+        default: true
+    },
+
+    verficationToken: String,
+
+    isVerified: {
+
+        type: Boolean,
+        default: false
+    },
+
 }, { timestamps: true });
 
 module.exports = mongoose.model('Student', StudentSchema);

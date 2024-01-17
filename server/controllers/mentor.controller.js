@@ -1,4 +1,4 @@
-const Mentor = require('../models/Mentor.model');
+const Mentor = require('../models/mentor.model');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const fs = require('fs');
@@ -38,13 +38,17 @@ const deleteObjectFromBucket = async (objectKey) => {
 
 const registerMentor = async (req, res) => {
     try {
+
         const { name, email, password } = req.body;
+
         const existing_email = await Mentor.findOne({ email });
+
         if (existing_email) {
             return res.status(400).json({ error: 'Email already exists' });
         }
 
         const salt = await bcrypt.genSalt();
+
         const passwordHash = await bcrypt.hash(password, salt);
         const mentor = await Mentor.create({ name, email, password: passwordHash });
 
@@ -78,7 +82,6 @@ const loginMentor = async (req, res) => {
 }
 
 const editMentor = async (req, res) => {
-    const { mentorId } = req.params;
     const {
         name,
         age,
@@ -89,7 +92,7 @@ const editMentor = async (req, res) => {
 
     try {
 
-        const existing_mentor = await Mentor.findById(mentorId);
+        const existing_mentor = await Mentor.findById(req.user.id);
         if (!existing_mentor) {
             return res.status(400).json({ error: 'Mentor does not exist' });
         }
@@ -133,4 +136,30 @@ const editMentor = async (req, res) => {
 
 }
 
-module.exports = { registerMentor, loginMentor, editMentor };
+
+const editSkillsAndInterest = async (req,res) => {
+
+    try{
+
+        const { skills, interests } = req.body;
+
+        const existing_mentor = await Mentor.findById(req.user.id);
+
+
+        if (!existing_mentor) {
+            return res.status(400).json({ error: 'Mentor does not exist' });
+        }
+
+        existing_mentor.skills = skills ? skills : existing_mentor.skills;
+        existing_mentor.interests = interests ? interests : existing_mentor.interests;
+
+        await existing_mentor.save();
+
+        res.status(200).json({ message: 'Skills and Interests Updated Successfully', mentor: existing_mentor });
+    }catch(error){
+        console.log(error)
+        res.status(500).json({ error: 'Unable to edit Student' });
+    }
+}
+
+module.exports = { registerMentor, loginMentor, editMentor, editSkillsAndInterest };
